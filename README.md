@@ -73,5 +73,20 @@ exit
 ```
 
 ```sh
+apt-get install gifsicle jhead jpegoptim libjpeg-progs optipng pngcrush pngquant -y
 
+cd /tmp/
+wget http://static.jonof.id.au/dl/kenutils/pngout-20150319-linux.tar.gz
+tar -xvf pngout-20150319-linux.tar.gz
+cp /tmp/pngout-20150319-linux/x86_64/pngout /usr/bin/pngout
+rm -rf ./pngout-20150319*
+cd ~
+
+# gifsicle --version
+# jhead  -V
+# jpegoptim --version
+# jpegtran -V
+# optipng --version
+# pngcrush --version
+# pngout
 ```
