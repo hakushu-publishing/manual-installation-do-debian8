@@ -108,19 +108,8 @@ cd ~
 
 ```sh
 cd /tmp
-
-wget http://sphinxsearch.com/files/sphinx-2.2.10-release.tar.gz
-tar -xvf sphinx-2.2.10-release.tar.gz
-cd sphinx-2.2.10-release
-
-wget http://snowball.tartarus.org/dist/libstemmer_c.tgz 
-tar -xvf libstemmer_c.tgz
-
-./configure --with-pgsql --with-mysql --with-libstemmer
-make
-checkinstall --pkgname=sphinx --pkgversion "2.2.10" --default
-
-cd ..
-rm -rf ./sphinx-2.2.10*
+wget http://sphinxsearch.com/files/sphinxsearch_2.2.10-release-1~jessie_amd64.deb
+dpkg -i sphinxsearch_2.2.10-release-1~jessie_amd64.deb
+rm -rf ./sphinxsearch*
 cd ~
 ```
