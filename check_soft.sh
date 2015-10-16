@@ -92,7 +92,6 @@ title "Helpers:"
 
 check_soft 'git'
 check_soft 'tmux'
-check_soft 'phantomjs'
 
 title "Image Optimizers:"
 
