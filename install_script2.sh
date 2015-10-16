@@ -38,7 +38,7 @@ mysql -u root -pqwerty12345 -D mysql -r -B -N -e "SHOW GRANTS FOR 'rails'@'local
 
 # PSQL
 
-apt-get install postgresql-9.4 postgresql-server-dev-9.4 libpq-dev
+apt-get install postgresql-9.4 postgresql-server-dev-9.4 libpq-dev -y
 
 su - postgres
 
