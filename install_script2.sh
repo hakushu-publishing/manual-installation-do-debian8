@@ -46,7 +46,7 @@ psql -U postgres -c "CREATE USER rails WITH PASSWORD 'qwerty12345';"
 createdb -E UTF8 -O rails hakushu_app
 psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE hakushu_app TO rails;"
 
-exit
+logout
 
 # SPHINX SEARCH
 
@@ -73,3 +73,5 @@ source ~/.bashrc
 source ~/.bash_profile
 
 rvm install ruby-2.2-head
+
+logout
