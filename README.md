@@ -41,4 +41,15 @@ debconf-set-selections <<< 'mysql-server mysql-server/root_password password qwe
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password qwerty12345'
 
 apt-get install mysql-server mysql-common mysql-client libmysqlclient-dev ruby-mysql -y
+
+unset DEBIAN_FRONTEND
+printenv DEBIAN_FRONTEND
+
+mysql --version
+
+mysql -u root -pqwerty12345 -D mysql -r -B -N -e "CREATE USER 'rails'@'localhost' IDENTIFIED BY 'qwerty12345'"
+
+mysql -u root -pqwerty12345 -D mysql -r -B -N -e "GRANT ALL PRIVILEGES ON hakushu_app.* TO 'rails'@'localhost' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0"
+
+mysql -u root -pqwerty12345 -D mysql -r -B -N -e "SHOW GRANTS FOR 'rails'@'localhost'"
 ```
