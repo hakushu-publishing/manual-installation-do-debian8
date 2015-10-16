@@ -90,3 +90,15 @@ cd ~
 # pngcrush --version
 # pngout
 ```
+
+```
+cd /tmp/
+wget http://nginx.org/download/nginx-1.9.5.tar.gz
+tar -xvf nginx-1.9.5.tar.gz
+cd nginx-1.9.5
+./configure
+make
+checkinstall --pkgname=nginx --pkgversion "1.9.5" --default
+cd ..
+rm -rf ./nginx-1.9.5*
+```
