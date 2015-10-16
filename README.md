@@ -25,6 +25,7 @@ make
 checkinstall --pkgname=redis-server --pkgversion "3.0.5" --default
 cd ..
 rm -rf ./redis-3.0.5*
+cd ~
 ```
 
 ```sh
@@ -36,6 +37,7 @@ cd node-v4.2.1/
 checkinstall --pkgname=nodejs --pkgversion "4.2.1" --default
 cd ..
 rm -rf ./node-v4.2.1*
+cd ~
 ```
 
 ```sh
@@ -101,4 +103,5 @@ make
 checkinstall --pkgname=nginx --pkgversion "1.9.5" --default
 cd ..
 rm -rf ./nginx-1.9.5*
+cd ~
 ```
