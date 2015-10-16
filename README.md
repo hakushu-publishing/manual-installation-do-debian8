@@ -18,11 +18,14 @@ echo "rails:qwerty12345" | chpasswd
 
 ```sh
 cd /tmp/
+
 wget http://download.redis.io/releases/redis-3.0.5.tar.gz
 tar -zxvf redis-3.0.5.tar.gz
 cd /tmp/redis-3.0.5
+
 make
 checkinstall --pkgname=redis-server --pkgversion "3.0.5" --default
+
 cd ..
 rm -rf ./redis-3.0.5*
 cd ~
@@ -30,12 +33,15 @@ cd ~
 
 ```sh
 cd /tmp/
+
 wget https://nodejs.org/download/release/latest/node-v4.2.1.tar.gz
 tar -zxvf node-v4.2.1.tar.gz
 cd node-v4.2.1/
+
 ./configure && make
 checkinstall --pkgname=nodejs --pkgversion "4.2.1" --default
 cd ..
+
 rm -rf ./node-v4.2.1*
 cd ~
 ```
@@ -78,9 +84,11 @@ exit
 apt-get install gifsicle jhead jpegoptim libjpeg-progs optipng pngcrush pngquant -y
 
 cd /tmp/
+
 wget http://static.jonof.id.au/dl/kenutils/pngout-20150319-linux.tar.gz
 tar -xvf pngout-20150319-linux.tar.gz
 cp /tmp/pngout-20150319-linux/x86_64/pngout /usr/bin/pngout
+
 rm -rf ./pngout-20150319*
 cd ~
 
@@ -93,23 +101,30 @@ cd ~
 # pngout
 ```
 
-```
-cd /tmp/
-wget http://nginx.org/download/nginx-1.9.5.tar.gz
-tar -xvf nginx-1.9.5.tar.gz
-cd nginx-1.9.5
-./configure
-make
-checkinstall --pkgname=nginx --pkgversion "1.9.5" --default
-cd ..
-rm -rf ./nginx-1.9.5*
+```sh
+cd /tmp
+
+wget http://sphinxsearch.com/files/sphinxsearch_2.2.10-release-1~jessie_amd64.deb
+dpkg -i sphinxsearch_2.2.10-release-1~jessie_amd64.deb
+
+rm -rf ./sphinxsearch*
 cd ~
 ```
 
-```sh
+```
 cd /tmp
-wget http://sphinxsearch.com/files/sphinxsearch_2.2.10-release-1~jessie_amd64.deb
-dpkg -i sphinxsearch_2.2.10-release-1~jessie_amd64.deb
-rm -rf ./sphinxsearch*
+
+wget http://nginx.org/keys/nginx_signing.key
+apt-key add nginx_signing.key
+
+echo 'deb http://nginx.org/packages/debian/ jessie nginx'     >> /etc/apt/sources.list
+echo 'deb-src http://nginx.org/packages/debian/ jessie nginx' >> /etc/apt/sources.list
+
+apt-get update
+apt-get install nginx
+
+rm -rf ./nginx*
 cd ~
+
+# nginx -v
 ```
