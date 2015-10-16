@@ -128,3 +128,12 @@ cd ~
 
 # nginx -v
 ```
+
+```sh
+su - rails
+echo 'export LC_ALL="en_US.UTF-8"'   >> ~/.bashrc
+echo 'export LANGUAGE="en_US:en"'    >> ~/.bashrc
+echo 'export LANG="en_US.UTF-8"'     >> ~/.bashrc
+echo 'export LC_CTYPE="en_US.UTF-8"' >> ~/.bashrc
+source ~/.bashrc
+```
