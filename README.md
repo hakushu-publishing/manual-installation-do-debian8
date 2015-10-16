@@ -1,9 +1,16 @@
 ## Hakushu. Manual installation: Digital Ocean + Debian 8.1
 
 ```sh
+apt-get install tmux
+tmux new -s hakushu_install
+tmux ls
+tmux a -t hakushu_install
+```
+
+```sh
 apt-get update
 
-apt-get install build-essential autoconf bison checkinstall curl git-core libodbc1 libc6-dev libreadline6 libreadline6-dev libsqlite3-0 libsqlite3-dev libssl-dev libxml2 libxml2-dev libxslt-dev libxslt1-dev libxslt1.1 libyaml-dev openssl sqlite3 tmux zlib1g zlib1g-dev -y
+apt-get install build-essential autoconf bison checkinstall curl git-core libodbc1 libc6-dev libreadline6 libreadline6-dev libsqlite3-0 libsqlite3-dev libssl-dev libxml2 libxml2-dev libxslt-dev libxslt1-dev libxslt1.1 libyaml-dev openssl sqlite3 zlib1g zlib1g-dev -y
 ```
 
 ```sh
