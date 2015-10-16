@@ -17,8 +17,7 @@ apt-get install tmux -y
 tmux new -s hakushu_install
 
 wget https://raw.githubusercontent.com/hakushu-publishing/manual-installation-do-debian8/master/install_script.sh
-chmod 700 install_script.sh
-./install_script.sh
+source ./install_script.sh
 ```
 
 ```sh
