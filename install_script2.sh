@@ -61,18 +61,13 @@ cd ~
 
 ### RAILS USER ###
 
-su - rails
+su -s /bin/bash -l rails -c "echo 'export LC_ALL=\"en_US.UTF-8\"'   >> ~/.bashrc"
+su -s /bin/bash -l rails -c "echo 'export LANGUAGE=\"en_US:en\"'    >> ~/.bashrc"
+su -s /bin/bash -l rails -c "echo 'export LANG=\"en_US.UTF-8\"'     >> ~/.bashrc"
+su -s /bin/bash -l rails -c "echo 'export LC_CTYPE=\"en_US.UTF-8\"' >> ~/.bashrc"
+su -s /bin/bash -l rails -c "source ~/.bashrc"
 
-echo 'export LC_ALL="en_US.UTF-8"'   >> ~/.bashrc
-echo 'export LANGUAGE="en_US:en"'    >> ~/.bashrc
-echo 'export LANG="en_US.UTF-8"'     >> ~/.bashrc
-echo 'export LC_CTYPE="en_US.UTF-8"' >> ~/.bashrc
-
-source ~/.bashrc
-
-\curl -sSL https://get.rvm.io | bash
-source ~/.bash_profile
-
-rvm install ruby-2.2-head
-
-logout
+su -s /bin/bash -l rails -c "\curl -sSL https://get.rvm.io | bash"
+su -s /bin/bash -l rails -c "source ~/.bash_profile"
+su -s /bin/bash -l rails -c "which rvm"
+su -s /bin/bash -l rails -c "rvm install ruby-2.2-head"
