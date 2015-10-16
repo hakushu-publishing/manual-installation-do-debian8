@@ -12,6 +12,11 @@ convert --version
 ```
 
 ```sh
+adduser rails --home /home/rails --shell /bin/bash --disabled-password --gecos ''
+echo "rails:qwerty12345" | chpasswd
+```
+
+```sh
 cd /tmp/
 wget http://download.redis.io/releases/redis-3.0.5.tar.gz
 tar -zxvf redis-3.0.5.tar.gz
@@ -52,4 +57,21 @@ mysql -u root -pqwerty12345 -D mysql -r -B -N -e "CREATE USER 'rails'@'localhost
 mysql -u root -pqwerty12345 -D mysql -r -B -N -e "GRANT ALL PRIVILEGES ON hakushu_app.* TO 'rails'@'localhost' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0"
 
 mysql -u root -pqwerty12345 -D mysql -r -B -N -e "SHOW GRANTS FOR 'rails'@'localhost'"
+```
+
+```sh
+apt-get install postgresql-9.4 postgresql-server-dev-9.4 libpq-dev
+psql --version
+
+su - postgres
+psql -U postgres -c "CREATE USER rails WITH PASSWORD 'qwerty12345';"
+createdb -E UTF8 -O rails hakushu_app
+psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE hakushu_app TO rails;"
+exit
+
+# psql -U rails -d hakushu_app -h localhost
+```
+
+```sh
+
 ```
