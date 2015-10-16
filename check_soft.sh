@@ -73,12 +73,10 @@ check_soft 'node'
 
 title "Converters:"
 
-check_soft 'ffmpeg'
 check_soft 'convert'
 
 title "CacheStores:"
 
-check_soft 'memcached'
 check_soft 'redis-server'
 
 title 'DataBases:'
@@ -89,7 +87,6 @@ check_soft 'mysql'
 title "Search:"
 
 check_soft 'searchd'
-check_soft 'elasticsearch'
 
 title "Helpers:"
 
