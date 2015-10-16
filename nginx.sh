@@ -10,8 +10,8 @@
 # Description:       starts nginx using start-stop-daemon
 ### END INIT INFO
  
-PATH=/opt/bin:/opt/sbin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-DAEMON=/opt/sbin/nginx
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/local/sbin/nginx
 NAME=nginx
 DESC=nginx
  
@@ -19,44 +19,49 @@ test -x $DAEMON || exit 0
  
 # Include nginx defaults if available
 if [ -f /etc/default/nginx ] ; then
-        . /etc/default/nginx
+    . /etc/default/nginx
 fi
  
 set -e
  
+. /lib/lsb/init-functions
+ 
 case "$1" in
   start)
-        echo -n "Starting $DESC: "
-        start-stop-daemon --start --quiet --pidfile /var/run/nginx.pid \
-                --exec $DAEMON -- $DAEMON_OPTS
-        echo "$NAME."
-        ;;
+    echo -n "Starting $DESC: "
+    start-stop-daemon --start --quiet --pidfile /usr/local/nginx/logs/$NAME.pid \
+        --exec $DAEMON -- $DAEMON_OPTS || true
+    echo "$NAME."
+    ;;
   stop)
-        echo -n "Stopping $DESC: "
-        start-stop-daemon --stop --quiet --pidfile /var/run/nginx.pid \
-                --exec $DAEMON
-        echo "$NAME."
-        ;;
+    echo -n "Stopping $DESC: "
+    start-stop-daemon --stop --quiet --pidfile /usr/local/nginx/logs/$NAME.pid \
+        --exec $DAEMON || true
+    echo "$NAME."
+    ;;
   restart|force-reload)
-        echo -n "Restarting $DESC: "
-        start-stop-daemon --stop --quiet --pidfile \
-                /var/run/nginx.pid --exec $DAEMON
-        sleep 1
-        start-stop-daemon --start --quiet --pidfile \
-                /var/run/nginx.pid --exec $DAEMON -- $DAEMON_OPTS
-        echo "$NAME."
-        ;;
+    echo -n "Restarting $DESC: "
+    start-stop-daemon --stop --quiet --pidfile \
+        /usr/local/nginx/logs/$NAME.pid --exec $DAEMON || true
+    sleep 1
+    start-stop-daemon --start --quiet --pidfile \
+        /usr/local/nginx/logs/$NAME.pid --exec $DAEMON -- $DAEMON_OPTS || true
+    echo "$NAME."
+    ;;
   reload)
       echo -n "Reloading $DESC configuration: "
-      start-stop-daemon --stop --signal HUP --quiet --pidfile /var/run/nginx.pid \
-          --exec $DAEMON
+      start-stop-daemon --stop --signal HUP --quiet --pidfile /usr/local/nginx/logs/$NAME.pid \
+          --exec $DAEMON || true
       echo "$NAME."
       ;;
+  status)
+      status_of_proc -p /usr/local/nginx/logs/$NAME.pid "$DAEMON" nginx && exit 0 || exit $?
+      ;;
   *)
-        N=/etc/init.d/$NAME
-        echo "Usage: $N {start|stop|restart|force-reload}" >&2
-        exit 1
-        ;;
+    N=/etc/init.d/$NAME
+    echo "Usage: $N {start|stop|restart|reload|force-reload|status}" >&2
+    exit 1
+    ;;
 esac
  
 exit 0
