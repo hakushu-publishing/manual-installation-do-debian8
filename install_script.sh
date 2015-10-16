@@ -17,10 +17,28 @@ source ~/.bashrc
 adduser rails --home /home/rails --shell /bin/bash --disabled-password --gecos ''
 echo "rails:qwerty12345" | chpasswd
 
+# IMAGE OPTIMIZERS
+
+apt-get install gifsicle jhead jpegoptim libjpeg-progs optipng pngcrush pngquant -y
+
+cd /tmp/
+
+wget http://static.jonof.id.au/dl/kenutils/pngout-20150319-linux.tar.gz
+tar -xvf pngout-20150319-linux.tar.gz
+cp /tmp/pngout-20150319-linux/x86_64/pngout /usr/bin/pngout
+
+rm -rf ./pngout-20150319*
+cd ~
+
 # IMAGE MAGICK
 
 apt-get install imagemagick libmagickwand-dev -y
 convert --version
+
+# NODE
+
+curl --silent --location https://deb.nodesource.com/setup_4.x | bash -
+apt-get install nodejs -y
 
 # REDIS
 
@@ -37,33 +55,6 @@ cd ..
 rm -rf ./redis-3.0.5*
 cd ~
 
-# NODE
-
-curl --silent --location https://deb.nodesource.com/setup_4.x | bash -
-apt-get install nodejs -y
-
-# IMAGE OPTIMIZERS
-
-apt-get install gifsicle jhead jpegoptim libjpeg-progs optipng pngcrush pngquant -y
-
-cd /tmp/
-
-wget http://static.jonof.id.au/dl/kenutils/pngout-20150319-linux.tar.gz
-tar -xvf pngout-20150319-linux.tar.gz
-cp /tmp/pngout-20150319-linux/x86_64/pngout /usr/bin/pngout
-
-rm -rf ./pngout-20150319*
-cd ~
-
-# RVM REQUIREMENTS
-
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-
-\curl -sSL https://get.rvm.io | bash
-/usr/local/rvm/bin/rvm requirements
-
-rvm implode
-
 # NGINX
 
 cd /tmp
@@ -79,6 +70,15 @@ apt-get install nginx
 
 rm -rf ./nginx*
 cd ~
+
+# RVM REQUIREMENTS
+
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+
+\curl -sSL https://get.rvm.io | bash
+/usr/local/rvm/bin/rvm requirements
+
+rvm implode
 
 # MYSQL
 
