@@ -24,3 +24,14 @@ source ./install_script.sh
 tmux ls
 tmux a -t hakushu_install
 ```
+
+```
+passwd root
+passwd rails
+
+su - postgres
+psql
+ALTER USER rails WITH PASSWORD 'j7DqipseLfaTmMB7';
+
+
+```
