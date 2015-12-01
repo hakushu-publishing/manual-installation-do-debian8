@@ -23,6 +23,9 @@ source ./install_script.sh
 ```sh
 tmux ls
 tmux a -t hakushu_install
+
+https://raw.githubusercontent.com/hakushu-publishing/manual-installation-do-debian8/master/check_soft.sh
+source ./check_soft.sh
 ```
 
 ```
