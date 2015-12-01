@@ -1,5 +1,20 @@
 ## Hakushu. Manual installation: Digital Ocean + Debian 8.1
 
+create droplet and get some IP: `188.166.59.209`
+
+on local machine if have custom ssh key
+
+`~/.ssh/config`
+
+```
+Host do 188.166.59.209
+  HostName 188.166.59.209
+  IdentityFile ~/.ssh/custom_rsa
+  ForwardAgent yes
+```
+
+go to new server
+
 ```
 ssh root@188.166.59.209
 > InitialPassword
