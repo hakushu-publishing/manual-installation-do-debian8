@@ -103,6 +103,14 @@ su -s /bin/bash -l postgres -c "psql -U postgres -c \"CREATE USER rails WITH PAS
 su -s /bin/bash -l postgres -c "createdb -E UTF8 -O rails hakushu_app"
 su -s /bin/bash -l postgres -c "psql -U postgres -c \"GRANT ALL PRIVILEGES ON DATABASE hakushu_app TO rails;\""
 
+# Pyhon / pip / Pygments
+
+apt-get install python-pip -y
+pip install --upgrade Pygments
+
+# pip list | grep Pygments
+# which pygmentize
+
 # SPHINX SEARCH
 
 cd /tmp
