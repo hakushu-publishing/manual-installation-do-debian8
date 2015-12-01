@@ -104,6 +104,7 @@ apt-get install mysql-server mysql-common mysql-client libmysqlclient-dev ruby-m
 unset DEBIAN_FRONTEND
 
 mysql -u root -pqwerty12345 -D mysql -r -B -N -e "CREATE USER 'rails'@'localhost' IDENTIFIED BY 'qwerty12345'"
+mysql -u root -pqwerty12345 -D mysql -r -B -N -e "CREATE DATABASE rails_app_db CHARACTER SET utf8 COLLATE utf8_general_ci;"
 mysql -u root -pqwerty12345 -D mysql -r -B -N -e "GRANT ALL PRIVILEGES ON rails_app_db.* TO 'rails'@'localhost' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0"
 mysql -u root -pqwerty12345 -D mysql -r -B -N -e "SHOW GRANTS FOR 'rails'@'localhost'"
 
