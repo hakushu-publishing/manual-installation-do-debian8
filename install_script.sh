@@ -112,8 +112,8 @@ mysql -u root -pqwerty12345 -D mysql -r -B -N -e "SHOW GRANTS FOR 'rails'@'local
 
 apt-get install postgresql-9.4 postgresql-server-dev-9.4 libpq-dev -y
 
-su -s /bin/bash -l postgres -c "psql -U postgres -c \"CREATE USER rails WITH PASSWORD 'qwerty12345';\""
 su -s /bin/bash -l postgres -c "createdb -E UTF8 -O rails rails_app_db"
+su -s /bin/bash -l postgres -c "psql -U postgres -c \"CREATE USER rails WITH PASSWORD 'qwerty12345';\""
 su -s /bin/bash -l postgres -c "psql -U postgres -c \"GRANT ALL PRIVILEGES ON DATABASE rails_app_db TO rails;\""
 
 # Pyhon / pip / Pygments
