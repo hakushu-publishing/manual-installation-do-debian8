@@ -92,7 +92,7 @@ apt-get install mysql-server mysql-common mysql-client libmysqlclient-dev ruby-m
 unset DEBIAN_FRONTEND
 
 mysql -u root -pqwerty12345 -D mysql -r -B -N -e "CREATE USER 'rails'@'localhost' IDENTIFIED BY 'qwerty12345'"
-mysql -u root -pqwerty12345 -D mysql -r -B -N -e "GRANT ALL PRIVILEGES ON hakushu_app.* TO 'rails'@'localhost' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0"
+mysql -u root -pqwerty12345 -D mysql -r -B -N -e "GRANT ALL PRIVILEGES ON rails_app_db.* TO 'rails'@'localhost' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0"
 mysql -u root -pqwerty12345 -D mysql -r -B -N -e "SHOW GRANTS FOR 'rails'@'localhost'"
 
 # PSQL
@@ -100,8 +100,8 @@ mysql -u root -pqwerty12345 -D mysql -r -B -N -e "SHOW GRANTS FOR 'rails'@'local
 apt-get install postgresql-9.4 postgresql-server-dev-9.4 libpq-dev -y
 
 su -s /bin/bash -l postgres -c "psql -U postgres -c \"CREATE USER rails WITH PASSWORD 'qwerty12345';\""
-su -s /bin/bash -l postgres -c "createdb -E UTF8 -O rails hakushu_app"
-su -s /bin/bash -l postgres -c "psql -U postgres -c \"GRANT ALL PRIVILEGES ON DATABASE hakushu_app TO rails;\""
+su -s /bin/bash -l postgres -c "createdb -E UTF8 -O rails rails_app_db"
+su -s /bin/bash -l postgres -c "psql -U postgres -c \"GRANT ALL PRIVILEGES ON DATABASE rails_app_db TO rails;\""
 
 # Pyhon / pip / Pygments
 
