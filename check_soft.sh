@@ -70,6 +70,7 @@ title "Programming Langs:"
 check_soft 'rvm'
 check_soft 'ruby'
 check_soft 'node'
+check_soft 'python'
 
 title "Converters:"
 
@@ -92,6 +93,7 @@ title "Helpers:"
 
 check_soft 'git'
 check_soft 'tmux'
+check_soft 'pygmentize'
 
 title "Image Optimizers:"
 
@@ -107,3 +109,6 @@ check_soft 'pngquant'
 title "WebServer:"
 
 check_soft 'nginx'
+
+# python -V
+# pygmentize -V
