@@ -36,3 +36,8 @@ su - postgres
 psql
 ALTER USER rails WITH PASSWORD 'SomeNewPassword';
 ```
+
+```
+mysql -u root -pqwerty12345 -D mysql -r -B -N -e "SET PASSWORD FOR 'rails'@'localhost' = PASSWORD('NewRailsUserMysqlPassword')"
+mysql -u root -pqwerty12345 -D mysql -r -B -N -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('NewRootUserMysqlPassword')"
+```
