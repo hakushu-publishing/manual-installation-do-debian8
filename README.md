@@ -52,6 +52,8 @@ passwd rails # NewRailsPassword
 su - postgres
 psql
 ALTER USER rails WITH PASSWORD 'NewRailsUserPsqlPassword';
+\q
+exit
 ```
 
 ```
