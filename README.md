@@ -29,7 +29,7 @@ ssh root@188.166.59.209
 
 ```sh
 apt-get install tmux -y
-tmux new -s hakushu_install
+tmux new -s rails_server_install
 
 wget https://raw.githubusercontent.com/hakushu-publishing/manual-installation-do-debian8/master/install_script.sh
 source ./install_script.sh
@@ -37,9 +37,9 @@ source ./install_script.sh
 
 ```sh
 tmux ls
-tmux a -t hakushu_install
+tmux a -t rails_server_install
 
-https://raw.githubusercontent.com/hakushu-publishing/manual-installation-do-debian8/master/check_soft.sh
+wget https://raw.githubusercontent.com/hakushu-publishing/manual-installation-do-debian8/master/check_soft.sh
 source ./check_soft.sh
 ```
 
