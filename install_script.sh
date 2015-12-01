@@ -17,6 +17,18 @@ source ~/.bashrc
 adduser rails --home /home/rails --shell /bin/bash --disabled-password --gecos ''
 echo "rails:qwerty12345" | chpasswd
 
+# create basic folders for user `rails`
+mkdir -p /home/rails/.ssh
+chown rails:rails /home/rails/.ssh
+
+mkdir -p /home/rails/www
+chown rails:rails /home/rails/www
+chmod -R 0755 /home/rails/www
+
+echo 'gem: --no-document' >> /home/rails/.gemrc
+chown rails:rails /home/rails/.gemrc
+chmod -R 0644 /home/rails/.gemrc
+
 # IMAGE OPTIMIZERS
 
 apt-get install gifsicle jhead jpegoptim libjpeg-progs optipng pngcrush pngquant -y
