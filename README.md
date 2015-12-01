@@ -44,9 +44,11 @@ source ./check_soft.sh
 ```
 
 ```
-passwd root
-passwd rails
+passwd root  # NewRootPassword
+passwd rails # NewRailsPassword
+```
 
+```
 su - postgres
 psql
 ALTER USER rails WITH PASSWORD 'NewRailsUserPsqlPassword';
@@ -69,5 +71,4 @@ MySQL:
 user: rails
 db: rails_app_db
 pass: NewRailsUserMysqlPassword
-
 ```
