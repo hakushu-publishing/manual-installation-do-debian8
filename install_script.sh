@@ -17,17 +17,30 @@ source ~/.bashrc
 adduser rails --home /home/rails --shell /bin/bash --disabled-password --gecos ''
 echo "rails:qwerty12345" | chpasswd
 
-# create basic folders for user `rails`
+echo "set nocompatible" >> ~/.vimrc
+echo ":set backspace=indent,eol,start" >> ~/.vimrc
+
+# Folders & Files for user `rails`
+
+# for ssh
 mkdir -p /home/rails/.ssh
 chown rails:rails /home/rails/.ssh
 
+# for Nginx
 mkdir -p /home/rails/www
 chown rails:rails /home/rails/www
 chmod -R 0755 /home/rails/www
 
+# for gem install
 echo 'gem: --no-document' >> /home/rails/.gemrc
 chown rails:rails /home/rails/.gemrc
 chmod -R 0644 /home/rails/.gemrc
+
+# for vim
+echo "set nocompatible" >> /home/rails/.vimrc
+echo ":set backspace=indent,eol,start" >> /home/rails/.vimrc
+chown rails:rails /home/rails/.vimrc
+chmod -R 0644 /home/rails/.vimrc
 
 # IMAGE OPTIMIZERS
 
