@@ -2,12 +2,12 @@
 
 ```
 ssh root@188.166.59.209
-> f83f3654e57dd413
->> f83f3654e57dd4131
->> f83f3654e57dd4131
+> InitialPassword
+>> NewPassword123
+>> NewPassword123
 
 cat ~/.ssh/id_rsa.pub | ssh root@188.166.59.209 'cat >> ~/.ssh/authorized_keys'
-> f83f3654e57dd4131
+> NewPassword123
 
 ssh root@188.166.59.209
 ```
