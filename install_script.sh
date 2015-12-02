@@ -3,6 +3,12 @@
 apt-get update
 apt-get install build-essential autoconf bison checkinstall curl git-core libodbc1 libc6-dev libreadline6 libreadline6-dev libsqlite3-0 libsqlite3-dev libssl-dev libxml2 libxml2-dev libxslt-dev libxslt1-dev libxslt1.1 libyaml-dev openssl sqlite3 zlib1g zlib1g-dev htop -y
 
+# New Relic Monitor
+echo 'deb http://apt.newrelic.com/debian/ newrelic non-free' | tee /etc/apt/sources.list.d/newrelic.list
+wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
+apt-get update
+apt-get install newrelic-sysmond
+
 # SET LANG VARS
 
 echo 'export LC_ALL="en_US.UTF-8"'   >> ~/.bashrc
