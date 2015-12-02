@@ -61,6 +61,12 @@ passwd rails # NewRailsPassword
 Change `rails` user password for PSQL
 
 ```
+su -s /bin/bash -l postgres -c "psql -U postgres -c \"ALTER USER rails WITH PASSWORD 'NewRailsUserPsqlPassword';\""
+```
+
+or
+
+```
 su - postgres
 psql
 ALTER USER rails WITH PASSWORD 'NewRailsUserPsqlPassword';
