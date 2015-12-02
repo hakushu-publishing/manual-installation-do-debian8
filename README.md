@@ -43,10 +43,22 @@ wget https://raw.githubusercontent.com/hakushu-publishing/manual-installation-do
 time ( source ./check_soft.sh )
 ```
 
+### After Install (as root)
+
+configure and start your NewRelic monitor
+
+```
+nrsysmond-config --set license_key=YOUR_LICENSE_KEY
+/etc/init.d/newrelic-sysmond start
+```
+
+Change `root` and `rails` users passwords
 ```
 passwd root  # NewRootPassword
 passwd rails # NewRailsPassword
 ```
+
+Change `rails` user password for PSQL
 
 ```
 su - postgres
@@ -56,20 +68,26 @@ ALTER USER rails WITH PASSWORD 'NewRailsUserPsqlPassword';
 exit
 ```
 
+Change `root` and `rails` user password for MySQL
+
 ```
 mysql -u root -pqwerty12345 -D mysql -r -B -N -e "SET PASSWORD FOR 'rails'@'localhost' = PASSWORD('NewRailsUserMysqlPassword')"
 mysql -u root -pqwerty12345 -D mysql -r -B -N -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('NewRootUserMysqlPassword')"
 ```
 
-```
+Your DB's connection data
+
 PSQL:
 
+```
 user: rails
 db: rails_app_db
 pass: NewRailsUserPsqlPassword
+```
 
 MySQL:
 
+```
 user: rails
 db: rails_app_db
 pass: NewRailsUserMysqlPassword
