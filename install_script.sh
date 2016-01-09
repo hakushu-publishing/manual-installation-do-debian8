@@ -48,6 +48,17 @@ echo ":set backspace=indent,eol,start" >> /home/rails/.vimrc
 chown rails:rails /home/rails/.vimrc
 chmod -R 0644 /home/rails/.vimrc
 
+# CREATE SWAP
+dd if=/dev/zero of=/swapfile bs=1024 count=2048k
+chmod 0600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+
+echo "/swapfile none swap sw 0 0" >> /etc/fstab
+
+echo 10 | tee /proc/sys/vm/swappiness
+echo vm.swappiness = 10 | tee -a /etc/sysctl.conf
+
 # IMAGE OPTIMIZERS
 
 apt-get install gifsicle jhead jpegoptim libjpeg-progs optipng pngcrush pngquant -y
